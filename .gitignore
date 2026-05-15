@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+
+
+# Project-specific ignores
+data/
+!data/README.md      # keep a tiny text file if you want to explain data location
+
+models/
+results/
+figures/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
