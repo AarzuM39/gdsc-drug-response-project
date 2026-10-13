@@ -94,11 +94,11 @@ The strongly regularized Ridge model achieved the best held-out performance amon
 
 The spread of points around the diagonal indicates that the model captures some variation in cisplatin response but has meaningful prediction error for individual cell lines. This pattern is consistent with moderate out-of-sample performance, rather than near-perfect performance.
 
-![Ridge test residual distribution](figures/Ridge-Test-Residual-Distribution-3.jpg)
+![Ridge test residual distribution](figures/residual_distribution_ridge_rf.png)
 
 **Figure 4.** Distribution of Ridge test-set residuals, defined as predicted `LN_IC50` minus observed `LN_IC50`.
 
-![Ridge residuals versus true cisplatin response](figures/Ridge-Residuals-vs-True-ln-IC50.jpg)
+![Ridge residuals versus true cisplatin response](figures/residuals_vs_true_ridge_rf.png)
 
 **Figure 5.** Ridge test-set residuals plotted against observed cisplatin `LN_IC50`. The horizontal reference line represents zero prediction error.
 
