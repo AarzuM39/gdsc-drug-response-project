@@ -56,9 +56,19 @@ Two model families were compared:
 | Ridge regression | Mean imputation and standardization | Regularized linear prediction using an L2 penalty |
 | Random Forest regression | Mean imputation; no standardization | Nonlinear tree-based ensemble prediction |
 
+Two Ridge models were evaluated using different regularization strengths. The final Ridge regularization value was selected using five-fold cross-validation on the training set. The selected model used \(\alpha = 10{,}000\).
 
+The final Random Forest configuration used 300 trees, `max_depth=7`, `max_features=200`, `min_samples_leaf=5`, and `random_state=42`.
 
+### Evaluation
 
+Models were evaluated on the held-out test set using:
+
+- \(R^2\), which compares the model with predicting the mean response.
+- Root mean squared error (RMSE), which gives greater weight to larger prediction errors.
+- Mean absolute error (MAE), which measures the average magnitude of the prediction error.
+
+Predicted-vs-observed and residual plots were also examined to assess model behavior beyond aggregate metrics.
 
 ## Key Results
 
