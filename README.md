@@ -92,15 +92,29 @@ The strongly regularized Ridge model achieved the best held-out performance amon
 
 **Figure 3.** Predicted versus observed cisplatin `LN_IC50` values in the held-out test set. The diagonal reference line represents perfect prediction.
 
-The spread of points around the diagonal indicates that the model captures some variation in cisplatin response but has meaningful prediction error for individual cell lines. This pattern is consistent with moderate out-of-sample performance, rather than near-perfect performance.
+The spread of points around the diagonal in the ridge test plot (left) indicates that the model captures some variation in cisplatin response but has meaningful prediction error for individual cell lines. This pattern is consistent with moderate out-of-sample performance, rather than near-perfect performance.
 
 ![Ridge test residual distribution](figures/residual_distribution_ridge_rf.png)
 
-**Figure 4.** Distribution of Ridge test-set residuals, defined as predicted `LN_IC50` minus observed `LN_IC50`.
+**Figure 4.** Distribution of Ridge and Random Forest 3 test-set residuals, defined as predicted `LN_IC50` minus observed `LN_IC50`.
 
 ![Ridge residuals versus true cisplatin response](figures/residuals_vs_true_ridge_rf.png)
 
-**Figure 5.** Ridge test-set residuals plotted against observed cisplatin `LN_IC50`. The horizontal reference line represents zero prediction error.
+**Figure 5.** Ridge and Random Forest 3 test-set residuals plotted against observed cisplatin `LN_IC50`. The horizontal reference line represents zero prediction error.
+
+### Feature-ranking analysis
+
+Ridge coefficients and Random Forest feature importances were examined to identify genes most strongly associated with model predictions. These rankings differed across model types, which is expected because Ridge and Random Forest quantify feature relevance differently.
+
+Ridge coefficients represent standardized linear associations between expression and predicted `LN_IC50`, conditional on the other features in the model. Random Forest feature importance measures how much a feature contributed to prediction across tree splits. Neither ranking should be interpreted as evidence that a gene causes cisplatin sensitivity or resistance.
+
+![Top Ridge Coefficients](figures/ridge_a10000_top_coefficients.png)
+
+**Figure 6.** The top 15 Ridge coefficients, plotted against the genes associated with each coefficient. The coefficients are sorted from highest to lowest.
+
+![RF3 Feature Importances](figures/rf3_top_feature_importances.png)
+
+**Figure 7.** 
 
 ## Interpretation
 
