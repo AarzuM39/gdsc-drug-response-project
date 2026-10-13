@@ -254,9 +254,8 @@ pip install jupyterlab ipykernel
 Run this once while the virtual environment is activated:
 
 ```bash
-python -m ipykernel install --user \
-  --name gdsc-drug-response \
-  --display-name "Python (gdsc-drug-response)"
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
 ### 6. Launch JupyterLab
