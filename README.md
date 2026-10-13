@@ -242,7 +242,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 4. Install dependencies
+### 4. Install dependencies and register the Jupyter kernel
 
 ```bash
 python -m pip install --upgrade pip
@@ -250,16 +250,7 @@ pip install -r requirements.txt
 pip install jupyterlab ipykernel
 ```
 
-### 5. Register the Jupyter kernel
-
-Run this once while the virtual environment is activated:
-
-```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-### 6. Launch JupyterLab
+### 5. Launch JupyterLab
 
 From the repository root:
 
@@ -273,7 +264,7 @@ Open the `notebooks/` directory. For each notebook, select the kernel named:
 Python (gdsc-drug-response)
 ```
 
-### 7. Run notebooks in order
+### 6. Run notebooks in order
 
 1. `notebooks/01_data_loading_and_qc.ipynb`  
    Loads, filters, reshapes, and merges the GDSC2 drug-response and RNA-seq data.
