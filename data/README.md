@@ -30,3 +30,7 @@ This notebook filters drug-response data to cisplatin, selects corresponding can
 ## Version note
 
 Cell Model Passports files and file names may change over time. The notebooks are designed around the dataset fields used in this project, including a cell-model identifier, drug name, cisplatin `LN_IC50`, gene symbol, and RSEM TPM expression value.
+
+### Data versioning
+
+The analysis used the GDSC2 and processed RNA-seq resources available from Cell Model Passports at the time of download. Because upstream data releases may change, readers reproducing the workflow at a later date may obtain slightly different record counts or results. The notebooks document the filtering, merging, and preprocessing steps used in this analysis.
