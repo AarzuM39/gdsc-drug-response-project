@@ -220,9 +220,28 @@ __marimo__/
 
 
 
-# Project-specific ignores
-data/
-!data/README.md      # keep a tiny text file if you want to explain data location
+# Raw and processed datasets
+data/raw/*
+data/processed/*
+
+# Keep documentation files inside data/
+!data/README.md
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Python and Jupyter artifacts
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
 
 models/
 results/
