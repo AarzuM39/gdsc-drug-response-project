@@ -206,6 +206,7 @@ Place the downloaded files in the expected local structure:
 data/
 ├── raw/
 │   ├── drug.csv
+│   ├── models.csv
 │   └── expr.csv
 └── processed/
 ```
