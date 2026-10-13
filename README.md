@@ -151,11 +151,8 @@ gdsc-drug-response-project/
 │   │   └── .gitkeep
 │   ├── processed/
 │   │   └── .gitkeep
-│   ├── metadata/
-│   │   └── cisplatin_cohort_summary.csv
-│   └── sample/
-│       ├── cisplatin_response_sample.csv
-│       └── expression_sample.csv
+│   └── metadata/ 
+│       └── cisplatin_cohort_summary.csv
 ├── figures/
 │   ├── cisplatin-response-distribution.jpg
 │   ├── model_test_r2_comparison.png
