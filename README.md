@@ -76,8 +76,8 @@ Predicted-vs-observed and residual plots were also examined to assess model beha
 
 | Model | Train \(R^2\) | Test \(R^2\) | Test RMSE | Test MAE |
 |---|---:|---:|---:|---:|
-| Ridge, \(\alpha = 100\) | 1.000 | 0.305 | 1.569 | 1.231 |
-| Ridge, \(\alpha = 10,000\) | 0.871 | 0.352 | 1.515 | 1.199 |
+| Ridge, \(\alpha = 100\) | 1.000 | 0.317 | 1.556 | 1.232 |
+| Ridge, \(\alpha = 10,000\) | 0.932 | 0.339 | 1.530 | 1.223 |
 | Random Forest 3 | 0.763 | 0.279 | 1.599 | 1.267 |
 
 The strongly regularized Ridge model achieved the best held-out performance among the tested models. Although the less strongly regularized Ridge model fit the training set almost perfectly, its lower test performance indicates substantial overfitting. The selected Ridge model accepted a lower training fit in exchange for improved performance on unseen cell lines.
