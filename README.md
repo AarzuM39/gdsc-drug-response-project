@@ -110,15 +110,17 @@ Ridge coefficients represent standardized linear associations between expression
 
 ![Top Ridge Coefficients](figures/ridge_a10000_top_coefficients.png)
 
-**Figure 6.** The top 15 Ridge coefficients, plotted against the genes associated with each coefficient. The genes are sorted highest to lowest.
+**Figure 6.** Top 15 gene-expression features ranked by absolute coefficient magnitude in the Ridge regression model (𝛼 = 10,000). Bars show signed coefficients; negative values indicate that higher expression contributes to lower predicted cisplatin LN_IC50, while positive values indicate a contribution to higher predicted LN_IC50, holding other predictors constant. SLFN11 has the largest absolute coefficient among the displayed features. These coefficients describe model-specific predictive associations, not causal effects.
 
 ![RF3 Feature Importances](figures/rf3_top_feature_importances.png)
 
-**Figure 7.** The top 15 Random Forest 3 feature importances, plotted against the associated genes. The genes are sorted highest to lowest.
+**Figure 7.** Top 15 gene-expression features ranked by importance in the Random Forest model (RF3). Importance scores represent the normalized reduction in the splitting criterion attributed to each feature across the forest, with TM4SF1 and PPIC receiving the highest scores among the displayed features. Unlike Ridge coefficients, these scores do not indicate whether higher expression increases or decreases predicted cisplatin LN_IC50. The rankings describe model-specific feature relevance and should not be interpreted as validated biomarkers.
 
 ![Ridge Correlation Heatmap](figures/top_gene_correlation_heatmap.png)
 
-**Figure 8.** A heatmap of the top Ridge genes based on coefficients.
+**Figure 8.** Pairwise expression correlations among the 15 highest-ranked Ridge features. Red indicates positive correlation, blue indicates negative correlation, and values near zero indicate weak linear correlation; only the lower triangle is displayed to avoid duplicating gene pairs. Most displayed pairs show weak correlations, but CDY2B, GSTT4, ZCCHC10P2, and IGLV3-13 form a strongly positively correlated group, with pairwise correlations ranging from approximately 0.78 to 0.96. These correlations are between expression features, not between genes and cisplatin response.
+
+Strong correlations among some highly ranked features suggest overlapping expression information. Consequently, individual Ridge coefficients should be interpreted cautiously rather than as independent measures of biological relevance.
 
 ## Discussion
 
