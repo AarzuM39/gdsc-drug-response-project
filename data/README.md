@@ -12,9 +12,10 @@ This project expects the following local structure:
 data/
 ├── raw/
 │   ├── drug.csv
+│   ├── models.csv
 │   └── expr.csv
 └── processed/
-    └── cisplatinrnaseqmodelreadyclean.csv
+    └── cisplatin_rnaseq_modelready_clean.csv
 ```
 
 ## Reproduce processed files
