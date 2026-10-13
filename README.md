@@ -184,7 +184,7 @@ The notebook order is:
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/AarzuM39/gdsc-drug-response-project.git](https://github.com/AarzuM39/gdsc-drug-response-project.git)
+git clone [[https://github.com/AarzuM39/gdsc-drug-response-project.git](https://github.com/AarzuM39/gdsc-drug-response-project.git)](https://github.com/AarzuM39/gdsc-drug-response-project.git)
 cd gdsc-drug-response-project
 ```
 
