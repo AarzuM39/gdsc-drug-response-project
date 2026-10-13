@@ -70,12 +70,17 @@ Models were evaluated on the held-out test set using:
 
 Predicted-vs-observed and residual plots were also examined to assess model behavior beyond aggregate metrics.
 
-## Key Results
+## Results
 
-- Ridge regression with alpha=10,000 performed best on the test set, with R2 = 0.339, RMSE = 1.530, and MAE = 1.223.
-- Stronger Ridge regularization improved generalization relative to Ridge alpha=100, which showed near-perfect training fit but weaker test performance.
-- Random Forest 3 (RF3) had lower test performance than the best Ridge model (R2 = 0.279, RMSE = 1.599, MAE = 1.267).
-- Ridge coefficient rankings and Random Forest feature-importance rankings differed, suggesting that the models emphasized different gene-expression signals.
+### Test-set performance
+
+| Model | Train \(R^2\) | Test \(R^2\) | Test RMSE | Test MAE |
+|---|---:|---:|---:|---:|
+| Ridge, \(\alpha = 100\) | 1.000 | 0.305 | 1.569 | 1.231 |
+| Ridge, \(\alpha = 10{,}000\) | 0.871 | 0.352 | 1.515 | 1.199 |
+| Random Forest 3 | 0.763 | 0.279 | 1.599 | 1.267 |
+
+The strongly regularized Ridge model achieved the best held-out performance among the tested models. Although the less strongly regularized Ridge model fit the training set almost perfectly, its lower test performance indicates substantial overfitting. The selected Ridge model accepted a lower training fit in exchange for improved performance on unseen cell lines.
 
 Test Set Performance Comparison
 ![Test-set performance comparison](figures/model_test_r2_comparison.png)
