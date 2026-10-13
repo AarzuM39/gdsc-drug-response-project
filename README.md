@@ -29,6 +29,18 @@ This project uses GDSC2 cancer cell-line data obtained through the [Cell Model P
 | Drug-response data | Drug name, Sanger cell-model ID, and `LN_IC50` | Regression target |
 | RNA-seq expression data | Sanger cell-model ID, gene symbol, and RSEM TPM expression value | Predictor variables |
 
+The drug-response dataset was filtered to cisplatin. RNA-seq records were filtered to the corresponding cell lines and reshaped from long format into a wide cell-line-by-gene matrix, where rows represented cell lines and columns represented genes. Drug-response and expression data were then matched using the Sanger cell-model ID.
+
+The final modeling dataset contained **743 cell lines** and **36,438 baseline gene-expression predictors**. The outcome variable was the dataset-provided cisplatin `LN_IC50` value, which was used directly as a continuous regression target; no additional log transformation was applied. Cell-line identifiers and drug-name columns were excluded from model training.
+
+### Cisplatin response distribution
+
+The cisplatin response values were unimodal and approximately bell-shaped, with most observations concentrated around intermediate `LN_IC50` values and fewer observations at the low and high extremes. Therefore, the dataset covers a broad response range, although the response values are not evenly represented across that range.
+
+![Distribution of cisplatin response values](figures/cisplatin_response_distribution.png)
+
+**Figure 1.** Distribution of the supplied cisplatin `LN_IC50` values in the 743-cell-line modeling dataset.
+
 ## Methods
 
 Data were split into 80% training and 20% test sets. Missing expression values were mean-imputed using training data only. We compared two Ridge regression models and one Random Forest regressor. Ridge pipelines applied imputation and feature standardization. The Random Forest pipeline applied imputation without standardization. The Ridge regularization value was selected using five-fold cross-validation on the training data. The models were evaluated on the test set using R2, RMSE, and MAE.
