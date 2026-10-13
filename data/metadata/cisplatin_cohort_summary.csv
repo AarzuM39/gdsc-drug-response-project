@@ -1,4 +1,1 @@
-| Data source | Information used | Role in analysis |
-|---|---|---|
-| Drug-response data | Drug name, Sanger cell-model ID, and `LN_IC50` | Regression target |
-| RNA-seq expression data | Sanger cell-model ID, gene symbol, and RSEM TPM expression value | Predictor variables |
+
