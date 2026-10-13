@@ -142,31 +142,31 @@ The results still indicate only moderate predictive performance. Baseline gene e
 
 ```text
 .
+gdsc-drug-response-project/
+├── data/
+│   ├── README.md
+│   ├── raw/
+│   │   └── .gitkeep
+│   ├── processed/
+│   │   └── .gitkeep
+│   ├── metadata/
+│   │   └── cisplatin_cohort_summary.csv
+│   └── sample/
+│       ├── cisplatin_response_sample.csv
+│       └── expression_sample.csv
+├── figures/
+│   ├── cisplatin-response-distribution.jpg
+│   ├── model_test_r2_comparison.png
+│   ├── predicted_vs_true_ridge_rf.png
+│   └── ...
 ├── notebooks/
 │   ├── 01_data_loading_and_qc.ipynb
 │   ├── 02_eda.ipynb
 │   ├── 03_baseline_models.ipynb
 │   ├── 04_model_comparison_and_interpretation.ipynb
 │   └── 05_final_figures.ipynb
-├── figures/
-│   ├── cisplatin_response_distribution.png
-│   ├── model_test_r2_comparison.png
-│   ├── predicted_vs_true_ridge_rf.png
-│   ├── residual_distribution_ridge_rf.png
-│   ├── residuals_vs_true_ridge_rf.png
-│   ├── rf3_top_feature_importances.png
-│   ├── ridge_a10000_top_coefficients.png
-│   └── top_gene_correlation_heatmap.png
-├── src/
-│   ├── __init__.py
-│   ├── data_utils.py
-│   ├── evaluation.py
-│   ├── modeling.py
-│   └── preprocessing.py
-├── data/
-├── requirements.txt
 ├── .gitignore
-├── LICENSE
+├── requirements.txt
 └── README.md
 ```
 
