@@ -208,28 +208,104 @@ The `data/` directory is excluded from version control because the source files 
 
 ## How to Run
 
-Create and activate a virtual environment, then install the dependencies:
+### 1. Clone the repository
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate        # macOS/Linux
-.venv\Scripts\activate           # Windows
+git clone [https://github.com/AarzuM39/gdsc-drug-response-project.git](https://github.com/AarzuM39/gdsc-drug-response-project.git)
+cd gdsc-drug-response-project
+```
+
+### 2. Download the data
+
+Large raw and processed datasets are not included in this repository. Download the required GDSC2 drug-response and RNA-seq expression files from the [Cell Model Passports download portal](https://cellmodelpassports.sanger.ac.uk/downloads).
+
+Place the downloaded files in the expected local structure:
+
+```text
+data/
+├── raw/
+│   ├── drug.csv
+│   └── expr.csv
+└── processed/
+```
+
+See [`data/README.md`](data/README.md) for data requirements, expected file names, and additional instructions. The first notebook generates project-specific processed files inside `data/processed/`.
+
+### 3. Create a virtual environment
+
+Create and activate a virtual environment from the repository root.
+
+**macOS/Linux**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+**Windows PowerShell**
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+If PowerShell prevents script execution, run the following command for the current terminal session and activate the environment again:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
+```
+
+### 4. Install dependencies
+
+```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
+pip install jupyterlab ipykernel
 ```
 
-Install the Jupyter kernel if needed:
+### 5. Register the Jupyter kernel
+
+Run this once while the virtual environment is activated:
 
 ```bash
-python -m ipykernel install --user --name gdsc-drug-response
+python -m ipykernel install --user \
+  --name gdsc-drug-response \
+  --display-name "Python (gdsc-drug-response)"
 ```
 
-Run the notebooks in order:
+### 6. Launch JupyterLab
 
-1. `notebooks/01_data_loading_and_qc.ipynb`
-2. `notebooks/02_eda.ipynb`
-3. `notebooks/03_baseline_models.ipynb`
-4. `notebooks/04_model_comparison_and_interpretation.ipynb`
-5. `notebooks/05_final_figures.ipynb`
+From the repository root:
+
+```bash
+jupyter lab
+```
+
+Open the `notebooks/` directory. For each notebook, select the kernel named:
+
+```text
+Python (gdsc-drug-response)
+```
+
+### 7. Run notebooks in order
+
+1. `notebooks/01_data_loading_and_qc.ipynb`  
+   Loads, filters, reshapes, and merges the GDSC2 drug-response and RNA-seq data.
+
+2. `notebooks/02_eda.ipynb`  
+   Performs exploratory data analysis and creates data-quality and response-distribution outputs.
+
+3. `notebooks/03_baseline_models.ipynb`  
+   Trains the baseline Ridge and Random Forest models.
+
+4. `notebooks/04_model_comparison_and_interpretation.ipynb`  
+   Compares final models, evaluates held-out performance, and examines coefficients and feature importances.
+
+5. `notebooks/05_final_figures.ipynb`  
+   Generates publication-ready figures saved to `figures/`.
+
+For reproducibility, use **Kernel → Restart Kernel and Run All Cells** for each notebook before proceeding to the next one.
 
 ## References
 
