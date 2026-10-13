@@ -179,33 +179,6 @@ The notebook order is:
 | `04_model_comparison_and_interpretation.ipynb` | Compares models and examines coefficients or feature importances |
 | `05_final_figures.ipynb` | Produces README-ready figures |
 
-## Data Availability
-
-The raw and processed datasets used in this project are not included in this repository because of their size. The data are publicly available through the [Cell Model Passports download portal](https://cellmodelpassports.sanger.ac.uk/downloads).
-
-To reproduce the analysis, download the following GDSC2 and RNA-seq resources from Cell Model Passports:
-
-| Required data | Source | Purpose in this project |
-|---|---|---|
-| GDSC2 drug-response data | Cell Model Passports GDSC2 download | Provides cisplatin response values, including `LN_IC50` |
-| Processed RNA-seq data | Cell Model Passports RNA-seq processed-data download | Provides baseline gene-expression values (`RSEM TPM`) |
-| Cell-model annotations, if needed | Cell Model Passports model annotation download | Provides identifiers and optional metadata for cell lines |
-
-After downloading the files, place them in the local directories shown below:
-
-```text
-data/
-├── raw/
-│   ├── drug.csv
-│   └── expr.csv
-└── processed/
-    └── cisplatinrnaseqmodelreadyclean.csv
-```
-
-The `data/` directory is excluded from version control because the source files are too large for standard GitHub storage. Run `notebooks/01_data_loading_and_qc.ipynb` to filter the public source data to cisplatin-treated cell lines, reshape RNA-seq data into a cell-line-by-gene matrix, and generate project-specific processed files.
-
-> **Note:** File names may vary across Cell Model Passports releases. If the downloaded files use different names, update the file paths in the data-loading notebook or rename the files locally to match the expected paths.
-
 ## How to Run
 
 ### 1. Clone the repository
@@ -219,6 +192,14 @@ cd gdsc-drug-response-project
 
 Large raw and processed datasets are not included in this repository. Download the required GDSC2 drug-response and RNA-seq expression files from the [Cell Model Passports download portal](https://cellmodelpassports.sanger.ac.uk/downloads).
 
+To reproduce the analysis, download the following GDSC2 and RNA-seq resources from Cell Model Passports:
+
+| Required data | Source | Purpose in this project |
+|---|---|---|
+| GDSC2 drug-response data | Cell Model Passports GDSC2 download | Provides cisplatin response values, including `LN_IC50` |
+| Processed RNA-seq data | Cell Model Passports RNA-seq processed-data download | Provides baseline gene-expression values (`RSEM TPM`) |
+| Cell-model annotations, if needed | Cell Model Passports model annotation download | Provides identifiers and optional metadata for cell lines |
+
 Place the downloaded files in the expected local structure:
 
 ```text
@@ -228,6 +209,10 @@ data/
 │   └── expr.csv
 └── processed/
 ```
+The `data/` directory is excluded from version control because the source files are too large for standard GitHub storage. Run `notebooks/01_data_loading_and_qc.ipynb` to filter the public source data to cisplatin-treated cell lines, reshape RNA-seq data into a cell-line-by-gene matrix, and generate project-specific processed files.
+
+> **Note:** File names may vary across Cell Model Passports releases. If the downloaded files use different names, update the file paths in the data-loading notebook or rename the files locally to match the expected paths.
+
 
 See [`data/README.md`](data/README.md) for data requirements, expected file names, and additional instructions. The first notebook generates project-specific processed files inside `data/processed/`.
 
