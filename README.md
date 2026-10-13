@@ -43,7 +43,22 @@ The cisplatin response values were unimodal and approximately bell-shaped, with 
 
 ## Methods
 
-Data were split into 80% training and 20% test sets. Missing expression values were mean-imputed using training data only. We compared two Ridge regression models and one Random Forest regressor. Ridge pipelines applied imputation and feature standardization. The Random Forest pipeline applied imputation without standardization. The Ridge regularization value was selected using five-fold cross-validation on the training data. The models were evaluated on the test set using R2, RMSE, and MAE.
+Data were split into 80% training and 20% held-out test sets using `random_state=42`, producing 594 training cell lines and 149 test cell lines. Missing expression values were mean-imputed using training data only, then the learned imputation values were applied to the test set.
+
+The predictor matrix contained many more gene-expression features than observations. This high-dimensional setting creates a substantial risk of overfitting, which motivated the use of regularized regression and held-out test-set evaluation.
+
+### Models
+
+Two model families were compared:
+
+| Model | Preprocessing | Purpose |
+|---|---|---|
+| Ridge regression | Mean imputation and standardization | Regularized linear prediction using an L2 penalty |
+| Random Forest regression | Mean imputation; no standardization | Nonlinear tree-based ensemble prediction |
+
+
+
+
 
 ## Key Results
 
