@@ -1,1 +1,7 @@
-
+Field	Value
+Drug	Cisplatin
+Merged observations	743
+Gene-expression predictors	36438
+Train observations	594
+Test observations	149
+Random seed	42
