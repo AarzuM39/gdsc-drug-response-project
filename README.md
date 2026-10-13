@@ -110,15 +110,75 @@ Ridge coefficients represent standardized linear associations between expression
 
 ![Top Ridge Coefficients](figures/ridge_a10000_top_coefficients.png)
 
-**Figure 6.** The top 15 Ridge coefficients, plotted against the genes associated with each coefficient. The coefficients are sorted from highest to lowest.
+**Figure 6.** The top 15 Ridge coefficients, plotted against the genes associated with each coefficient. The genes are sorted highest to lowest.
 
 ![RF3 Feature Importances](figures/rf3_top_feature_importances.png)
 
-**Figure 7.** 
+**Figure 7.** The top 15 Random Forest 3 feature importances, plotted against the associated genes. The genes are sorted highest to lowest.
 
-## Interpretation
+![Ridge Correlation Heatmap](figures/top_gene_correlation_heatmap.png)
 
-The strongly regularized Ridge model generalized best to the test set, which suggests that a linear model using many small gene-expression effects is more effective for this dataset than the tested Random Forest configurations. However, the overall performance was still moderate, so these results should be treated as exploratory rather than as a clinical prediction tool. Other models could also be tested to determine their effectiveness.
+**Figure 8.** A heatmap of the top Ridge genes based on coefficients.
+
+## Discussion
+
+The strongly regularized Ridge model generalized best to the held-out test set among the models evaluated. This suggests that, for this dataset, predictive signal may be represented more effectively by many small and regularized linear gene-expression effects than by the nonlinear patterns captured by the tested Random Forest configurations.
+
+The improvement associated with stronger Ridge regularization is particularly relevant because the dataset contains many more gene-expression predictors than cell lines. In this setting, an unconstrained or weakly constrained model can fit training-specific noise, producing highly optimistic training performance that does not necessarily transfer to new observations.
+
+The results still indicate only moderate predictive performance. Baseline gene expression alone does not provide a sufficiently precise cisplatin-response predictor for clinical use in this analysis. The models and feature rankings should therefore be treated as exploratory tools for hypothesis generation rather than validated biomarkers or causal evidence.
+
+## Limitations
+
+- The modeling dataset included 743 cell lines but 36,438 gene-expression predictors, creating a high-dimensional problem with a substantial risk of overfitting.
+- Results were evaluated using one 80/20 train-test split; performance may vary under alternative splits or repeated cross-validation.
+- Only Ridge regression and a limited set of Random Forest configurations were evaluated.
+- The analysis used baseline RNA-seq expression alone and did not incorporate mutation, copy-number, methylation, tissue-of-origin, or other molecular features.
+- Cancer cell lines do not fully reproduce patient tumors, including tumor microenvironment effects, pharmacokinetics, and clinical treatment conditions.
+- Feature rankings represent model-specific predictive associations, not causal mechanisms or clinically validated biomarkers.
+- The findings were not validated in an independent external dataset.
+
+## Repository Structure
+
+```text
+.
+├── notebooks/
+│   ├── 01_data_loading_and_qc.ipynb
+│   ├── 02_eda.ipynb
+│   ├── 03_baseline_models.ipynb
+│   ├── 04_model_comparison_and_interpretation.ipynb
+│   └── 05_final_figures.ipynb
+├── figures/
+│   ├── cisplatin_response_distribution.png
+│   ├── model_test_r2_comparison.png
+│   ├── predicted_vs_true_ridge_rf.png
+│   ├── residual_distribution_ridge_rf.png
+│   ├── residuals_vs_true_ridge_rf.png
+│   ├── rf3_top_feature_importances.png
+│   ├── ridge_a10000_top_coefficients.png
+│   └── top_gene_correlation_heatmap.png
+├── src/
+│   ├── __init__.py
+│   ├── data_utils.py
+│   ├── evaluation.py
+│   ├── modeling.py
+│   └── preprocessing.py
+├── data/
+├── requirements.txt
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+The notebook order is:
+
+| Notebook | Purpose |
+|---|---|
+| `01_data_loading_and_qc.ipynb` | Loads, filters, reshapes, and merges drug-response and expression data |
+| `02_eda.ipynb` | Examines data structure, missingness, and cisplatin-response distribution |
+| `03_baseline_models.ipynb` | Trains baseline Ridge and Random Forest models |
+| `04_model_comparison_and_interpretation.ipynb` | Compares models and examines coefficients or feature importances |
+| `05_final_figures.ipynb` | Produces README-ready figures |
 
 ## How to Run
 
