@@ -1,5 +1,15 @@
 # Predicting Cisplatin Response from Gene Expression Using GDSC2
 
+## Overview
+
+This project evaluates whether baseline RNA-seq gene-expression profiles can predict cisplatin response across cancer cell lines in the Genomics of Drug Sensitivity in Cancer 2 (GDSC2) dataset. Cisplatin response was modeled as the supplied continuous `LN_IC50` value using both Ridge regression and Random Forest regression.
+
+The final analysis used 743 cell lines and 36,438 gene-expression predictors. The best-performing model was strongly regularized Ridge regression, which achieved a held-out test-set \(R^2\) of 0.339.
+
+## Research Question
+
+Can baseline RNA-seq gene-expression profiles predict the supplied cisplatin `LN_IC50` response measure in held-out GDSC2 cancer cell lines?
+
 ## Background
 
 Due to alterations in cancer genomes, different cancer cells can vary greatly in their response to anticancer drugs. This means that, in many cases, these alterations can be used as effective molecular biomarkers for response to drugs. Understanding these genomic markers and the resulting variation in response to different anticancer drugs can help create more informed hypotheses about treatment response and even potentially identify which patients might benefit most from a certain treatment. The Genomics of Drug Sensitivity in Cancer (GDSC) database is a large public resource for information on drug sensitivity in cancer cells and molecular markers of drug response. This database can help facilitate the discovery of new therapeutic biomarkers for different anticancer drugs. [1]
@@ -8,11 +18,16 @@ Cisplatin is a widely used chemotherapy agent. It has been shown to be effective
 
 ## Objective
 
-This project investigates whether drug response data and genomic profiles of cancer cells, such as those found in the GDSC database, can be used to predict the sensitivity and resistance to anticancer drugs, specifically cisplatin, across different cancer cell lines. The analysis in this project compares a regularized linear regression (Ridge) with a Random Forest Regression. It emphasizes out-of-sample performance, overfitting control, residual diagnostics, and feature-ranking analysis. Drug response is represented by the dataset's supplied log-transformed IC50 measure, which was used directly as the value predicted by the tested regression models. It is important to note that results of this project are only intended as exploratory predictive associations, not clinical recommendations or evidence of causal mechanisms.
+This project investigates the research question above by comparing regularized linear regression (Ridge) with Random Forest regression. The analysis emphasizes out-of-sample performance, overfitting control, residual diagnostics, and feature-ranking analysis. Drug response is represented by the dataset's supplied log-transformed IC50 measure, which was used directly as the value predicted by the tested regression models. It is important to note that results of this project are only intended as exploratory predictive associations, not clinical recommendations or evidence of causal mechanisms.
 
 ## Data
 
-This project uses GDSC2 cancer cell-line data to predict cisplatin response. The data were obtained through the Cell Model Passports portal (https://cellmodelpassports.sanger.ac.uk/downloads). The model uses baseline RNA-seq gene-expression measurements (RSEM TPM) as predictors and cisplatin `LN_IC50` as the response variable. Drug-response and expression records were matched by Sanger cell-model ID.
+This project uses GDSC2 cancer cell-line data obtained through the [Cell Model Passports download portal](https://cellmodelpassports.sanger.ac.uk/downloads). Two data sources were integrated:
+
+| Data source | Information used | Role in analysis |
+|---|---|---|
+| Drug-response data | Drug name, Sanger cell-model ID, and `LN_IC50` | Regression target |
+| RNA-seq expression data | Sanger cell-model ID, gene symbol, and RSEM TPM expression value | Predictor variables |
 
 ## Methods
 
