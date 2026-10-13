@@ -82,8 +82,9 @@ Predicted-vs-observed and residual plots were also examined to assess model beha
 
 The strongly regularized Ridge model achieved the best held-out performance among the tested models. Although the less strongly regularized Ridge model fit the training set almost perfectly, its lower test performance indicates substantial overfitting. The selected Ridge model accepted a lower training fit in exchange for improved performance on unseen cell lines.
 
-Test Set Performance Comparison
-![Test-set performance comparison](figures/model_test_r2_comparison.png)
+![Test-set model-performance comparison](figures/model_test_r2_comparison.png)
+
+**Figure 2.** Held-out test-set \(R^2\) values for the evaluated models. Higher values indicate better out-of-sample predictive performance.
 
 Predicted vs. True Cisplatin Response
 ![Predicted versus true cisplatin response](figures/predicted_vs_true_ridge_rf.png)
