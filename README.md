@@ -78,6 +78,10 @@ Predicted-vs-observed and residual plots were also examined to assess model beha
 The single 80/20 split cannot show how much of the predictive signal comes from the tissue of origin, or how stables the scores are. `06_tissue_baseline_and_cv.ipynb` therefore re-evaluated the models with tissue labels and cross-validation.
 
 - **Tissue labels:** Tissue of origin came from the Cell Model Passports model annotation file (`models.csv`). Tissues with fewer than 10 cell lines were pooled into an “Other” group.
+- **Cross-validation schemes:**
+  1. Repeated 5-fold cross-validation with 3 repeats (15 splits).
+  2. Leave-tissue-out cross-validation using grouped folds, in which all cell lines from a tissue group are held out together, so the model is tested on tissues it wasn’t trained on.
+- **Models compared:**
 
 
 ## Results
