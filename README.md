@@ -185,6 +185,8 @@ The results still indicate only moderate predictive performance. Baseline gene e
 - The modeling dataset included 743 cell lines but 36,438 gene-expression predictors, creating a high-dimensional problem with a substantial risk of overfitting.
 - The initial models (Notebooks 3 to 5) were evaluated on one 80/20 split, and some settings were compared using test-set scores. So those test-set numbers are exploratory. Repeated cross-validation in Notebook 6 gives more stable estimates, but its folds overlap and are not independent, so small differences between models should not be treated as significant.
 - The Random Forest used fixed hyperparameters from the single-split analysis and was not tuned inside cross-validation.
+- Leave-tissue-out cross-validation uses few folds, and some tissues have few cell lines, so per-fold scores vary widely.
+- Only Ridge regression and a limited set of Random Forest configurations were evaluated.
 - The analysis used baseline RNA-seq expression alone and did not incorporate mutation, copy-number, methylation, tissue-of-origin, or other molecular features.
 - Cancer cell lines do not fully reproduce patient tumors, including tumor microenvironment effects, pharmacokinetics, and clinical treatment conditions.
 - Feature rankings represent model-specific predictive associations, not causal mechanisms or clinically validated biomarkers.
