@@ -203,8 +203,9 @@ gdsc-drug-response-project/
 │   │   └── .gitkeep
 │   ├── processed/
 │   │   └── .gitkeep
-│   └── metadata/ 
-│       └── cisplatin_cohort_summary.csv
+│   └── metadata/
+│       ├── cisplatin_cohort_summary.csv
+│       └── cv_results.csv
 ├── figures/
 │   ├── cisplatin-response-distribution.jpg
 │   ├── model_test_r2_comparison.png
@@ -215,7 +216,8 @@ gdsc-drug-response-project/
 │   ├── 02_eda.ipynb
 │   ├── 03_baseline_models.ipynb
 │   ├── 04_model_comparison_and_interpretation.ipynb
-│   └── 05_final_figures.ipynb
+│   ├── 05_final_figures.ipynb
+│   └── 06_tissue_baseline_and_cv.ipynb
 ├── .gitignore
 ├── requirements.txt
 └── README.md
