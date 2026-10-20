@@ -117,7 +117,7 @@ The spread of points around the diagonal in the ridge test plot (left) indicates
 
 ![Ridge test residual distribution](figures/residual_distribution_ridge_rf.png)
 
-**Figure 4.** Distribution of Ridge and Random Forest 3 test-set residuals, defined as predicted `LN_IC50` minus observed `LN_IC50`.
+**Figure 4.** Distribution of Ridge and Random Forest 3 test-set residuals, defined as observed `LN_IC50` minus predicted `LN_IC50`.
 
 ![Ridge residuals versus true cisplatin response](figures/residuals_vs_true_ridge_rf.png)
 
