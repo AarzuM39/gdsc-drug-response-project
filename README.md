@@ -176,6 +176,8 @@ The strongly regularized Ridge model generalized best to the held-out test set a
 
 The improvement associated with stronger Ridge regularization is particularly relevant because the dataset contains many more gene-expression predictors than cell lines. In this setting, an unconstrained or weakly constrained model can fit training-specific noise, producing highly optimistic training performance that does not necessarily transfer to new observations.
 
+The cross-validated analysis shows that tissue of origin accounts for a substantial part of the predictable signal, and that expression adds information beyond it. Performance dropped when whole tissues were held out, which suggests that part of the random-split performance relies on tissue-specific patterns. Positive performance on unseen tissues does not by itself show that the signal is independent of tissue lineage, because expression profiles of related tissues resemble one another. The feature rankings above come from the single-split models and were not re-examined after accounting for tissue, so some highly ranked genes may actually mark tissue lineage and not drug-specific mechanisms.
+
 The results still indicate only moderate predictive performance. Baseline gene expression alone does not provide a sufficiently precise cisplatin-response predictor for clinical use in this analysis. The models and feature rankings should therefore be treated as exploratory tools for hypothesis generation rather than validated biomarkers or causal evidence.
 
 ## Limitations
