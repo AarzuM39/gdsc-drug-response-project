@@ -151,6 +151,14 @@ Cisplatin response differed across tissue groups: median `LN_IC50` ranged from r
 
 **Figure 9.** Distribution of cisplatin LN_IC50 by tissue group, ordered by median. Tissues with fewer than 10 cell lines are pooled into “Other”. The number of cell lines per tissue is not shown.
 
+Pooled out-of-fold \(R^2\) (per-fold sandard deviation in parentheses):
+
+| Model | Random 5-fold, 3 Repeats | Leave-tissue-out |
+|---|---:|---:|
+| Mean Baseline | -0.002 (0.006) | -0.113 (0.646) |
+| Tissue Only | 0.274 (0.051) | 0.339 |
+| Random Forest 3 | 0.763 | 0.279 |
+
 ## Discussion
 
 The strongly regularized Ridge model generalized best to the held-out test set among the models evaluated. This suggests that, for this dataset, predictive signal may be represented more effectively by many small and regularized linear gene-expression effects than by the nonlinear patterns captured by the tested Random Forest configurations.
