@@ -6,7 +6,7 @@ This project evaluates whether baseline RNA-seq gene-expression profiles can pre
 
 The final analysis used 743 cell lines and 36,438 gene-expression predictors. In the initial 80/20 split, the best-performing model was strongly regularized Ridge regression, which achieved a held-out test-set $R^2$ of 0.339.
 
-Because cisplatin response differs by tissue of origin, a follow-up analysis added a tissue-only baseline plus repeated and leave-tissue-out cross-validation. In repeated 5-fold cross-validation, Ridge regression on expression reached a pooled out-of-fold \(R^2\) of 0.414, compared with 0.274 for a model that knew only each cell line’s tissue. When entire tissues were held out, expression Ridge retained a pooled \(R^2\) of 0.190, compared with -0.113 for a mean-only baseline.
+Because cisplatin response differs by tissue of origin, a follow-up analysis added a tissue-only baseline plus repeated and leave-tissue-out cross-validation. In repeated 5-fold cross-validation, Ridge regression on expression reached a pooled out-of-fold $R^2$ of 0.414, compared with 0.274 for a model that knew only each cell line’s tissue. When entire tissues were held out, expression Ridge retained a pooled $R^2$ of 0.190, compared with -0.113 for a mean-only baseline.
 
 ## Research Question
 
@@ -67,7 +67,7 @@ The final Random Forest configuration used 300 trees, `max_depth=7`, `max_featur
 
 Models were evaluated on the held-out test set using:
 
-- \(R^2\), which compares the model with predicting the mean response.
+- $R^2$, which compares the model with predicting the mean response.
 - Root mean squared error (RMSE), which gives greater weight to larger prediction errors.
 - Mean absolute error (MAE), which measures the average magnitude of the prediction error.
 
@@ -88,14 +88,14 @@ The single 80/20 split cannot show how much of the predictive signal comes from 
   - An expression-plus-tissue model that first predicts each tissue’s mean response then fits Ridge on gene expression to the remaining residual
   - A Random Forest using the RF3 settings which were chosen in the earlier single-split analysis
 - **No tuning on held-out data:** Imputation, scaling, and the Ridge penalty (selected with `RidgeCV` from 15 values between 0.01 and 100,000) were all fit within each training fold.
-- **Metric:** The headline metric is pooled out-of-fold \(R^2\) (predictions for all held-out cell lines are collected and scored once against the overall mean). Pooling is used because, in leave-tissue-out folds that contain only one or two tissues, a per-fold \(R^2\) is scored against that fold’s own mean and varies widely. Per-fold means and standard deviations are also saved in `data/metadata/cv_results.csv`.
+- **Metric:** The headline metric is pooled out-of-fold $R^2$ (predictions for all held-out cell lines are collected and scored once against the overall mean). Pooling is used because, in leave-tissue-out folds that contain only one or two tissues, a per-fold $R^2$ is scored against that fold’s own mean and varies widely. Per-fold means and standard deviations are also saved in `data/metadata/cv_results.csv`.
 
 
 ## Results
 
 ### Test-set performance
 
-| Model | Train \(R^2\) | Test \(R^2\) | Test RMSE | Test MAE |
+| Model | Train $R^2$ | Test $R^2$ | Test RMSE | Test MAE |
 |---|---:|---:|---:|---:|
 | Ridge, \(\alpha = 100\) | 1.000 | 0.317 | 1.556 | 1.232 |
 | Ridge, \(\alpha = 10,000\) | 0.932 | 0.339 | 1.530 | 1.223 |
@@ -105,7 +105,7 @@ The strongly regularized Ridge model achieved the best held-out performance amon
 
 ![Test-set model-performance comparison](figures/model_test_r2_comparison.png)
 
-**Figure 2.** Held-out test-set \(R^2\) values for the evaluated models. Higher values indicate better out-of-sample predictive performance.
+**Figure 2.** Held-out test-set $R^2$ values for the evaluated models. Higher values indicate better out-of-sample predictive performance.
 
 ### Prediction and residual diagnostics
 
@@ -151,7 +151,7 @@ Cisplatin response differed across tissue groups: median `LN_IC50` ranged from r
 
 **Figure 9.** Distribution of cisplatin LN_IC50 by tissue group, ordered by median. Tissues with fewer than 10 cell lines are pooled into “Other”. The number of cell lines per tissue is not shown.
 
-Pooled out-of-fold \(R^2\) (per-fold sandard deviation in parentheses):
+Pooled out-of-fold $R^2$ (per-fold sandard deviation in parentheses):
 
 | Model | Random 5-fold, 3 Repeats | Leave-tissue-out |
 |---|---:|---:|
@@ -163,12 +163,12 @@ Pooled out-of-fold \(R^2\) (per-fold sandard deviation in parentheses):
 
 ![Cross-Validated R^2 Comparison](figures/cv_r2_comparison.png)
 
-**Figure 10.** Pooled out-of-fold R^2 for each model under random and leave-tissue-out cross-validation. Bars below zero indicate performance worse than predicting the overall mean. The random-split mean-baseline bar is near zero (-0.002) and therefore barely visible.
+**Figure 10.** Pooled out-of-fold $R^2$ for each model under random and leave-tissue-out cross-validation. Bars below zero indicate performance worse than predicting the overall mean. The random-split mean-baseline bar is near zero (-0.002) and therefore barely visible.
 
 - Tissue alone explained about 27% of the variance in random cross-validation.
-- Adding expression to tissue raied pooled R^2 from 0.274 to 0.388, so expression carried predictive information beyond tissue means. Expression Ridge alone scored 0.414; the 0.026 difference from the two-stage model is smaller than the fold-to-fold variation and should not be interpreted.
+- Adding expression to tissue raied pooled $R^2$ from 0.274 to 0.388, so expression carried predictive information beyond tissue means. Expression Ridge alone scored 0.414; the 0.026 difference from the two-stage model is smaller than the fold-to-fold variation and should not be interpreted.
 - Ridge outperformed the Random Forest in both schemes, which is consistent with the single-split result.
-- When whole tissues were held out, the tissue-only model could not improve on the mean baseline, while expression models retained positive pooled R^2 (0.138 to 0.190). Some predictive signal therefore transfers to unseen tissues, although performance was lower than in random cross-validation.
+- When whole tissues were held out, the tissue-only model could not improve on the mean baseline, while expression models retained positive pooled $R^2$ (0.138 to 0.190). Some predictive signal therefore transfers to unseen tissues, although performance was lower than in random cross-validation.
 
 ## Discussion
 
