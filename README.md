@@ -163,7 +163,7 @@ Pooled out-of-fold \(R^2\) (per-fold sandard deviation in parentheses):
 
 ![Cross-Validated R^2 Comparison](figures/cv_r2_comparison.png)
 
-**Figure 10.** Distribution of cisplatin LN_IC50 by tissue group, ordered by median. Tissues with fewer than 10 cell lines are pooled into “Other”. The number of cell lines per tissue is not shown.
+**Figure 10.** Pooled out-of-fold R^2 for each model under random and leave-tissue-out cross-validation. Bars below zero indicate performance worse than predicting the overall mean. The random-split mean-baseline bar is near zero (-0.002) and therefore barely visible.
 
 ## Discussion
 
