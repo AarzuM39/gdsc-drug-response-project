@@ -158,7 +158,8 @@ Pooled out-of-fold \(R^2\) (per-fold sandard deviation in parentheses):
 | Mean Baseline | -0.002 (0.006) | -0.113 (0.646) |
 | Tissue Only | 0.274 (0.051) | -0.064 (0.637) |
 | Expression Ridge | 0.414 (0.064) | 0.190 (0.538) |
-| Expression + Tissue (Two Stage) | 0.414 (0.064) | 0.190 (0.538) |
+| Expression + Tissue (Two Stage) | 0.388 (0.080) | 0.150 (0.360) |
+| Expression Random Forest | 0.356 (0.037) | 0.138 (0.465) |
 
 ## Discussion
 
