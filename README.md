@@ -73,6 +73,10 @@ Models were evaluated on the held-out test set using:
 
 Predicted-vs-observed and residual plots were also examined to assess model behavior beyond aggregate metrics.
 
+### Tissue baseline and cross-validation
+
+The single 80/20 split cannot show how much of the predictive signal comes from the tissue of origin, or how stables the scores are. `06_tissue_baseline_and_cv.ipynb` therefore re-evaluated the models with tissue labels and cross-validation.
+
 ## Results
 
 ### Test-set performance
