@@ -336,6 +336,9 @@ Python (gdsc-drug-response)
 5. `notebooks/05_final_figures.ipynb`  
    Generates publication-ready figures saved to `figures/`.
 
+6. `notebooks/06_tissue_baseline_and_cv.ipynb`  
+   Adds tissue-of-origin baselines as well as repeated and leave-tissue-out cross-validation. Saves `data/metadata/cv_results.csv` and the two cross-validation figures.
+
 For reproducibility, use **Kernel → Restart Kernel and Run All Cells** for each notebook before proceeding to the next one.
 
 ## References
