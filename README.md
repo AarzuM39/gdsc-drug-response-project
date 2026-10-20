@@ -183,7 +183,7 @@ The results still indicate only moderate predictive performance. Baseline gene e
 ## Limitations
 
 - The modeling dataset included 743 cell lines but 36,438 gene-expression predictors, creating a high-dimensional problem with a substantial risk of overfitting.
-- Results were evaluated using one 80/20 train-test split; performance may vary under alternative splits or repeated cross-validation.
+- ⦁	The initial models (Notebooks 3 to 5) were evaluated on one 80/20 split, and some settings were compared using test-set scores. So those test-set numbers are exploratory. Repeated cross-validation in Notebook 6 gives more stable estimates, but its folds overlap and are not independent, so small differences between models should not be treated as significant.
 - Only Ridge regression and a limited set of Random Forest configurations were evaluated.
 - The analysis used baseline RNA-seq expression alone and did not incorporate mutation, copy-number, methylation, tissue-of-origin, or other molecular features.
 - Cancer cell lines do not fully reproduce patient tumors, including tumor microenvironment effects, pharmacokinetics, and clinical treatment conditions.
