@@ -88,6 +88,7 @@ The single 80/20 split cannot show how much of the predictive signal comes from 
   - An expression-plus-tissue model that first predicts each tissue’s mean response then fits Ridge on gene expression to the remaining residual
   - A Random Forest using the RF3 settings which were chosen in the earlier single-split analysis
 - **No tuning on held-out data:** Imputation, scaling, and the Ridge penalty (selected with `RidgeCV` from 15 values between 0.01 and 100,000) were all fit within each training fold.
+- **Metric:** The headline metric is pooled out-of-fold \(R^2\) (predictions for all held-out cell lines are collected and scored once against the overall mean). Pooling is used because, in leave-tissue-out folds that contain only one or two tissues, a per-fold \(R^2\) is scored against that fold’s own mean and varies widely. Per-fold means and standard deviations are also saved in `data/metadata/cv_results.csv`.
 
 
 ## Results
