@@ -82,6 +82,12 @@ The single 80/20 split cannot show how much of the predictive signal comes from 
   1. Repeated 5-fold cross-validation with 3 repeats (15 splits).
   2. Leave-tissue-out cross-validation using grouped folds, in which all cell lines from a tissue group are held out together, so the model is tested on tissues it wasn’t trained on.
 - **Models compared:**
+  - A mean-only baseline
+  - A tissue-only model (one-hot tissue labels with Ridge)
+  - Expression Ridge
+  - An expression-plus-tissue model that first predicts each tissue’s mean response then fits Ridge on gene expression to the remaining residual
+  - A Random Forest using the RF3 settings which were chosen in the earlier single-split analysis
+- **No tuning on held-out data:**
 
 
 ## Results
