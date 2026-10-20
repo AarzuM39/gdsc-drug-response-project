@@ -165,6 +165,11 @@ Pooled out-of-fold \(R^2\) (per-fold sandard deviation in parentheses):
 
 **Figure 10.** Pooled out-of-fold R^2 for each model under random and leave-tissue-out cross-validation. Bars below zero indicate performance worse than predicting the overall mean. The random-split mean-baseline bar is near zero (-0.002) and therefore barely visible.
 
+- Tissue alone explained about 27% of the variance in random cross-validation.
+- Adding expression to tissue raied pooled R^2 from 0.274 to 0.388, so expression carried predictive information beyond tissue means. Expression Ridge alone scored 0.414; the 0.026 difference from the two-stage model is smaller than the fold-to-fold variation and should not be interpreted.
+- Ridge outperformed the Random Forest in both schemes, which is consistent with the single-split result.
+- When whole tissues were held out, the tissue-only model could not improve on the mean baseline, while expression models retained positive pooled R^2 (0.138 to 0.190). Some predictive signal therefore transfers to unseen tissues, although performance was lower than in random cross-validation.
+
 ## Discussion
 
 The strongly regularized Ridge model generalized best to the held-out test set among the models evaluated. This suggests that, for this dataset, predictive signal may be represented more effectively by many small and regularized linear gene-expression effects than by the nonlinear patterns captured by the tested Random Forest configurations.
