@@ -232,6 +232,7 @@ The notebook order is:
 | `03_baseline_models.ipynb` | Trains baseline Ridge and Random Forest models |
 | `04_model_comparison_and_interpretation.ipynb` | Compares models and examines coefficients or feature importances |
 | `05_final_figures.ipynb` | Produces README-ready figures |
+| `06_tissue_baseline_and_cv.ipynb` | Adds tissue-of-origin baselines as well as repeated and leave-tissue-out cross-validation |
 
 ## How to Run
 
