@@ -187,7 +187,7 @@ The results still indicate only moderate predictive performance. Baseline gene e
 - The Random Forest used fixed hyperparameters from the single-split analysis and was not tuned inside cross-validation.
 - Leave-tissue-out cross-validation uses few folds, and some tissues have few cell lines, so per-fold scores vary widely.
 - Only Ridge regression and a limited set of Random Forest configurations were evaluated.
-- The analysis used baseline RNA-seq expression alone and did not incorporate mutation, copy-number, methylation, tissue-of-origin, or other molecular features.
+- The analysis used baseline RNA-seq expression alone and did not incorporate mutation, copy-number, methylation, or other molecular features. Tissue of origin was only used in Notebook 6, not as a feature in the Notebook 3 to 5 models.
 - Cancer cell lines do not fully reproduce patient tumors, including tumor microenvironment effects, pharmacokinetics, and clinical treatment conditions.
 - Feature rankings represent model-specific predictive associations, not causal mechanisms or clinically validated biomarkers.
 - The findings were not validated in an independent external dataset.
