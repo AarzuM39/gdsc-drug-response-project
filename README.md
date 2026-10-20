@@ -79,15 +79,15 @@ The single 80/20 split cannot show how much of the predictive signal comes from 
 
 - **Tissue labels:** Tissue of origin came from the Cell Model Passports model annotation file (`models.csv`). Tissues with fewer than 10 cell lines were pooled into an “Other” group.
 - **Cross-validation schemes:**
-  1. Repeated 5-fold cross-validation with 3 repeats (15 splits).
-  2. Leave-tissue-out cross-validation using grouped folds, in which all cell lines from a tissue group are held out together, so the model is tested on tissues it wasn’t trained on.
+  - Repeated 5-fold cross-validation with 3 repeats (15 splits).
+  - Leave-tissue-out cross-validation using grouped folds, in which all cell lines from a tissue group are held out together, so the model is tested on tissues it wasn’t trained on.
 - **Models compared:**
   - A mean-only baseline
   - A tissue-only model (one-hot tissue labels with Ridge)
   - Expression Ridge
   - An expression-plus-tissue model that first predicts each tissue’s mean response then fits Ridge on gene expression to the remaining residual
   - A Random Forest using the RF3 settings which were chosen in the earlier single-split analysis
-- **No tuning on held-out data:**
+- **No tuning on held-out data:** Imputation, scaling, and the Ridge penalty (selected with `RidgeCV` from 15 values between 0.01 and 100,000) were all fit within each training fold.
 
 
 ## Results
