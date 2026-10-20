@@ -156,8 +156,9 @@ Pooled out-of-fold \(R^2\) (per-fold sandard deviation in parentheses):
 | Model | Random 5-fold, 3 Repeats | Leave-tissue-out |
 |---|---:|---:|
 | Mean Baseline | -0.002 (0.006) | -0.113 (0.646) |
-| Tissue Only | 0.274 (0.051) | 0.339 |
-| Random Forest 3 | 0.763 | 0.279 |
+| Tissue Only | 0.274 (0.051) | -0.064 (0.637) |
+| Expression Ridge | 0.414 (0.064) | 0.190 (0.538) |
+| Expression + Tissue (Two Stage) | 0.414 (0.064) | 0.190 (0.538) |
 
 ## Discussion
 
