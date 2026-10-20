@@ -4,7 +4,7 @@
 
 This project evaluates whether baseline RNA-seq gene-expression profiles can predict cisplatin response across cancer cell lines in the Genomics of Drug Sensitivity in Cancer 2 (GDSC2) dataset. Cisplatin response was modeled as the supplied continuous `LN_IC50` value using both Ridge regression and Random Forest regression.
 
-The final analysis used 743 cell lines and 36,438 gene-expression predictors. In the initial 80/20 split, the best-performing model was strongly regularized Ridge regression, which achieved a held-out test-set \(R^2\) of 0.339.
+The final analysis used 743 cell lines and 36,438 gene-expression predictors. In the initial 80/20 split, the best-performing model was strongly regularized Ridge regression, which achieved a held-out test-set $R^2$ of 0.339.
 
 Because cisplatin response differs by tissue of origin, a follow-up analysis added a tissue-only baseline plus repeated and leave-tissue-out cross-validation. In repeated 5-fold cross-validation, Ridge regression on expression reached a pooled out-of-fold \(R^2\) of 0.414, compared with 0.274 for a model that knew only each cell line’s tissue. When entire tissues were held out, expression Ridge retained a pooled \(R^2\) of 0.190, compared with -0.113 for a mean-only baseline.
 
