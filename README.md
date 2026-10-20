@@ -161,6 +161,10 @@ Pooled out-of-fold \(R^2\) (per-fold sandard deviation in parentheses):
 | Expression + Tissue (Two Stage) | 0.388 (0.080) | 0.150 (0.360) |
 | Expression Random Forest | 0.356 (0.037) | 0.138 (0.465) |
 
+![Cross-Validated R^2 Comparison](figures/cv_r2_comparison.png)
+
+**Figure 10.** Distribution of cisplatin LN_IC50 by tissue group, ordered by median. Tissues with fewer than 10 cell lines are pooled into “Other”. The number of cell lines per tissue is not shown.
+
 ## Discussion
 
 The strongly regularized Ridge model generalized best to the held-out test set among the models evaluated. This suggests that, for this dataset, predictive signal may be represented more effectively by many small and regularized linear gene-expression effects than by the nonlinear patterns captured by the tested Random Forest configurations.
